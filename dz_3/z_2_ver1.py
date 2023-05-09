@@ -21,20 +21,21 @@
 # ноутбук
 #     12
 
-dict_rus = {1 : "АВЕИНОРСТ",
-            2 : "ДКЛМПУ",
-            3 : "БГЁЬЯ",
-            4 : "ЙЫ",
-            5 : "ЖЗХЦЧ",
-            8 : "ШЭЮ",
-            10 : "ФЩЪ"}
+scrabble = {1 : 'AEIOULNSTRАВЕИНОРСТ',
+            2 : 'DGДКЛМПУ',
+            3 : 'BCMPБГЁЬЯ',
+            4 : 'FHVWYЙЫ',
+            5 : 'KЖЗХЦЧ',
+            8 : 'JXШЭЮ',
+            10 : 'QZФЩЪ'}
 
-word = input("Введите слово на русском языке: ").upper()
-sum = 0
+word = input('Введите слово: ')
+total = 0
 
-for i in word:
-    for k, v in dict_rus.items():
-        if i in v:
-            sum += k
+for letter in word.upper():
+    for points, letters in scrabble.items():
+        if letter in letters:
+            total += points
+            break
 
-print(f"Стоимость слова {word} = {sum}")
+print(f'Слово "{word}" весит {total} баллов.')
